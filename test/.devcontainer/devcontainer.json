@@ -1,0 +1,16 @@
+{
+  "name": "Develop Sample",
+
+  // Dockerfileでイメージ・コンテナを作成
+  "dockerFile": "Dockerfile",
+
+  // リモート先のVS Codeにインストールする拡張機能
+  "extensions": [
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "saikou9901.evilinspector",
+    "oderwat.indent-rainbow",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode"
+  ]
+}
