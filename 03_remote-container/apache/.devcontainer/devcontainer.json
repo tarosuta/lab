@@ -3,7 +3,7 @@
 
   //プロジェクトのルートを指定
   //devcontainer.jsonから相対パス
-  //`"context": "..",
+  //"context": "..",
 
   // Dockerfileでイメージ・コンテナを作成
   //"dockerFile": "./Dockerfile",
@@ -26,8 +26,7 @@
   // デフォルトユーザをrootから切り替える
   //"remoteUser": "",
 
-  //フォルダマウント位置
-  //defaultは/
+  //コンテナ立ち上げ後、VSCodeのworkspaceとなる位置
   //"workspaceFolder": "/workspace",
   "workspaceFolder": "/usr/local/apache2/htdocs/",
 
@@ -70,7 +69,6 @@
       },
       "extensions.ignoreRecommendations": true
     }
-  ],
-
-  "postCreateCommand": "apt-get update && apt-get install -y git"
+  ]
+  //"postCreateCommand": "apt-get update && apt-get install -y git"
 }

@@ -17,7 +17,8 @@ services:
     #cashed:ホストOS側の変更をコンテナ側に伝える際の、伝達遅延のパフォーマンス向上
     #docker-compose.yml を使う場合は明示的に指定しないといけないっぽい。
     volumes:
-      - .:/workspace:cached
+      - .:/usr/local/apache2/htdocs/:cached
+      #- ./:/workspace/:cached
 
     #localhostの8080番ポートあての通信をコンテナの80番ポートに転送する設定
     ports:
