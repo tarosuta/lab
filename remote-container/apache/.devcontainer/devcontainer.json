@@ -1,0 +1,76 @@
+{
+  "name": "apache sample",
+
+  //プロジェクトのルートを指定
+  //devcontainer.jsonから相対パス
+  //`"context": "..",
+
+  // Dockerfileでイメージ・コンテナを作成
+  //"dockerFile": "./Dockerfile",
+
+  //docker-compose.ymlを使用するとworkspaceFolderが必須だが
+  // /Usersがコンテナから見えないため、/Usersは以下のファイルを編集できない。。。
+
+  //docker-compose.ymlでイメージとコンテナを作成
+  //devcontainer.json からの相対パスで指定。
+  //複数ファイル記述可（配列で）。
+  "dockerComposeFile": "docker-compose.yml",
+
+  //docker-compose.yml の中のどのサービスを実行するか
+  //defaultは全てのサービス
+  //"runServices":[]
+
+  //docker-compose.yml の中のどのサービスに VS Code が接続するか
+  "service": "httpd",
+
+  // デフォルトユーザをrootから切り替える
+  //"remoteUser": "",
+
+  //フォルダマウント位置
+  //defaultは/
+  //"workspaceFolder": "/workspace",
+  "workspaceFolder": "/usr/local/apache2/htdocs/",
+
+  // リモート先のVS Codeにインストールする拡張機能
+  "extensions": [
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "saikou9901.evilinspector",
+    "oderwat.indent-rainbow",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode"
+  ],
+
+  "settings": [
+    {
+      "editor.bracketPairColorization.enabled": true,
+      "editor.guides.bracketPairs": true,
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+      "workbench.colorCustomizations": {
+        "terminal.background": "#282A36",
+        "terminal.foreground": "#F8F8F2",
+        "terminal.ansiBlack": "#21222C",
+        "terminal.ansiBrightBlack": "#6272A4",
+        "terminal.ansiBlue": "#BD93F9",
+        "terminal.ansiBrightBlue": "#D6ACFF",
+        "terminal.ansiCyan": "#8BE9FD",
+        "terminal.ansiBrightCyan": "#A4FFFF",
+        "terminal.ansiGreen": "#50FA7B",
+        "terminal.ansiBrightGreen": "#69FF94",
+        "terminal.ansiMagenta": "#FF79C6",
+        "terminal.ansiBrightMagenta": "#FF92DF",
+        "terminal.ansiRed": "#FF5555",
+        "terminal.ansiBrightRed": "#FF6E6E",
+        "terminal.ansiWhite": "#F8F8F2",
+        "terminal.ansiBrightWhite": "#FFFFFF",
+        "terminal.ansiYellow": "#F1FA8C",
+        "terminal.ansiBrightYellow": "#FFFFA5"
+      },
+      "extensions.ignoreRecommendations": true
+    }
+  ],
+
+  "postCreateCommand": "apt-get update && apt-get install -y git"
+}

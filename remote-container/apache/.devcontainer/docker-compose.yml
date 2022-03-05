@@ -1,0 +1,24 @@
+version: "3"
+
+#
+#参考
+#https://tech-lab.sios.jp/archives/20051
+#
+
+#「サービス＝コンテナ」のイメージ
+services:
+  #各サービスの名前
+  httpd:
+    #DockerリポジトリからPullするDockerイメージ
+    image: httpd:2.4.52
+
+    #コンテナのworkspace
+    #ホストOSを(PC)上のこのymlがあるディレクトリにマウント
+    #cashed:ホストOS側の変更をコンテナ側に伝える際の、伝達遅延のパフォーマンス向上
+    #docker-compose.yml を使う場合は明示的に指定しないといけないっぽい。
+    volumes:
+      - .:/workspace:cached
+
+    #localhostの8080番ポートあての通信をコンテナの80番ポートに転送する設定
+    ports:
+      - "8080:80"
